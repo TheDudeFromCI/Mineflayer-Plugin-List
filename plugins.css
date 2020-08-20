@@ -11,3 +11,7 @@
 .plugin-author {
     font-style: italic;
 }
+
+.plugin-description {
+    font-style: normal;
+}
