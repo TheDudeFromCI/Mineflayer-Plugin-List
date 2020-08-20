@@ -1,23 +1,9 @@
-function loadPluginData()
+function loadPluginData(pluginId)
 {
-    const pluginData = sessionStorage.getItem('plugin-data')
-    if (pluginData === undefined)
-    {
-        failToLoadPlugin()
-        return
-    }
+    document.getElementById('commentSection').style.display = 'block'
 
-    const data = parseData(pluginData)
-
-    loadPluginName(data.name)
-    loadCommentThread(data.id)
-}
-
-function failToLoadPlugin()
-{
-    const warning = document.createElement('p')
-    warning.innerHTML = 'Failed to load plugin page!'
-    document.appendChild(warning)
+    loadPluginName("Plugin Name")
+    loadCommentThread(pluginId)
 }
 
 function loadCommentThread(issueId)
@@ -49,5 +35,5 @@ function parseData(data)
 
 function loadPluginName(pluginName)
 {
-    document.getElementById('pluginName').innerHTML = pluginName
+    document.getElementById('bigText').innerHTML = pluginName
 }
