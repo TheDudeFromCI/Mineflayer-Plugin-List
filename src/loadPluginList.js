@@ -4,13 +4,13 @@ function loadPluginList()
 {
     const request = new XMLHttpRequest()
     request.open('GET', ISSUE_LIST_URL, true)
-    request.onload = issueListResponse
+    request.onload = issuePluginListResponse
     request.send()
 
     document.getElementById('pluginListContainer').style.display = 'block'
 }
 
-function issueListResponse()
+function issuePluginListResponse()
 {
     if (this.status >= 200 && this.status < 400)
     {
