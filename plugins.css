@@ -1,0 +1,13 @@
+.plugin {
+    margin: 1em;
+
+    border: 1px;
+}
+
+.plugin-title {
+    font-weight: 600;
+}
+
+.plugin-author {
+    font-style: italic;
+}
