@@ -21,6 +21,7 @@ function fakePluginList()
         {
             title: '[Plugin] Lumberjack',
             state: 'open',
+            body: '# MY AWESOME PLUGIN\r\nOh yeah, it\'s awesome.\r\n## description\r\nThis is my plugin which is really cool and does stuff.\r\nIt does a lot of stuff!\r\nSo, so, so much!\r\n* Like this\r\n* And this\r\n* And even this!\r\nWow!\r\n## usage\r\nEh, you just kinda install it.\r\n## more\r\n... meh?',
             user: {
                 login: 'LoggerTheCabin'
             }
@@ -28,6 +29,7 @@ function fakePluginList()
         {
             title: '[Plugin] Fisherman',
             state: 'open',
+            body: '# STUFF\r\n\r\nI\'m really not following the format, am I? NOPE! # description \r\nit fishes',
             user: {
                 login: 'Luck of the Sea'
             }
@@ -35,6 +37,7 @@ function fakePluginList()
         {
             title: '[Plugin] Miner',
             state: 'open',
+            body: 'Just body. No headers.',
             user: {
                 login: 'Steve'
             }
@@ -42,6 +45,7 @@ function fakePluginList()
         {
             title: '[Plugin] Kill Aura',
             state: 'open',
+            body: '',
             user: {
                 login: 'ILovePVP'
             }
@@ -49,6 +53,7 @@ function fakePluginList()
         {
             title: '[Plugin] Creeper Hugger',
             state: 'closed',
+            body: '',
             user: {
                 login: 'Love_The_Creepers'
             }
@@ -56,8 +61,17 @@ function fakePluginList()
         {
             title: "I'm a regular question.",
             state: 'open',
+            body: '',
             user: {
                 login: 'TheCurious1'
+            }
+        },
+        {
+            title: "[Plugin] Boat Maker",
+            state: 'open',
+            body: "# Description\r\nI make bosts and it's as simple as that. I do nothing more. Litterally nothing. Just make boats. I just take some wooden planks, take a crafting table, and just... put them together! Specifically in the shape of a boat! So you can travel over the water with your boat. Maybe visit a new island. Is this description too long? Nah, not at all. It's the perfect length. Tells you anything and everything you need to know in order to make some boats using this plugin. I  haven't said enough yet, so I'm just gonna repeat myself from the beginning. I make bosts and it's as simple as that. I do nothing more. Litterally nothing. Just make boats. I just take some wooden planks, take a crafting table, and just... put them together! Specifically in the shape of a boat! So you can travel over the water with your boat. Maybe visit a new island. Is this description too long? Nah, not at all. It's the perfect length. Tells you anything and everything you need to know in order to make some boats using this plugin.",
+            user: {
+                login: 'BoatMaker_Dev'
             }
         }
     ]
@@ -118,12 +132,43 @@ function createPluginEntry(response)
     const author = document.createElement('div')
     author.classList.add('plugin-author')
     author.innerHTML = response.user.login
+
+    const desc = document.createElement('p')
+    desc.classList.add('plugin-description')
+    desc.innerHTML = extractDescription(response.body)
     
     const plugin = document.createElement('div')
     plugin.classList.add('plugin')
 
     plugin.appendChild(name)
     plugin.appendChild(author)
+    plugin.appendChild(desc)
 
     return plugin
+}
+
+function extractDescription(body)
+{
+    const regex = /#+\s+Description\s+([^#]*)/i
+    const cap = body.match(regex)
+
+    console.log(cap)
+
+    if (!cap || cap.length < 2) return 'No description available.'
+
+    let desc = cap[1]
+    desc = truncate(desc, 256)
+    desc = desc.trim()
+
+    return desc
+}
+
+function truncate(str, n)
+{
+    if (str.length <= n) return str
+
+    let sub = str.substr(0, n - 1);
+    sub = sub.substr(0, sub.lastIndexOf(" "))
+
+    return sub + "..."
 }
