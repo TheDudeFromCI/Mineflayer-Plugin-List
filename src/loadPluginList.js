@@ -139,11 +139,16 @@ function createPluginEntry(response)
     
     const plugin = document.createElement('div')
     plugin.classList.add('plugin')
+    plugin.classList.add('border-secondary')
+    plugin.classList.add('border')
+    plugin.classList.add('rounded')
+    plugin.classList.add('p-2')
 
     plugin.appendChild(name)
     plugin.appendChild(author)
     plugin.appendChild(desc)
 
+    plugin.onclick = () => loadPluginPage(response)
     return plugin
 }
 
@@ -151,8 +156,6 @@ function extractDescription(body)
 {
     const regex = /#+\s+Description\s+([^#]*)/i
     const cap = body.match(regex)
-
-    console.log(cap)
 
     if (!cap || cap.length < 2) return 'No description available.'
 
@@ -171,4 +174,11 @@ function truncate(str, n)
     sub = sub.substr(0, sub.lastIndexOf(" "))
 
     return sub + "..."
+}
+
+function loadPluginPage(pluginData)
+{
+    const data = JSON.stringify(pluginData)
+    sessionStorage.setItem('plugin-data', data)
+    window.location.href = "./pluginPage.html"
 }

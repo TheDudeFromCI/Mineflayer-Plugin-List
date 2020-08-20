@@ -9,11 +9,17 @@
 	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-	<link rel="stylesheet" href="plugins.css" />
-	<script src="./src/loadPluginList.js"></script>
+	<style>
+		.utterances {
+			height: 512px;
+		}
+	</style>
+
+	<script src="./src/loadPluginData.js"></script>
+	<script src="./lib/utterances.js"></script>
 </head>
 
-<body onload="loadPluginList()">
+<body onload="loadPluginData()">
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
 		<a class="navbar-brand" href="#">Logo</a>
 		<ul class="navbar-nav">
@@ -35,13 +41,15 @@
 
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container">
-			<h1>Mineflayer Plugin List</h1>
-			<p>A collection of available plugins to use and extend Mineflayer, customizing to work exactly as you want.</p>
+			<h1 id="pluginName" class="text-center">Plugin Name</h1>
 		</div>
 	</div>
 
 	<div class="container border rounded">
 		<div id="pluginList">
+		</div>
+	
+		<div id="commentSection">
 		</div>
 	</div>
 

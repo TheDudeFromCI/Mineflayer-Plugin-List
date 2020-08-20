@@ -15,3 +15,7 @@
 .plugin-description {
     font-style: normal;
 }
+
+.plugin:hover {
+    background-color: rgb(220, 220, 220);
+}
