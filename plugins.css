@@ -19,3 +19,25 @@
 .plugin:hover {
     background-color: rgb(220, 220, 220);
 }
+
+.carousel-retain-aspect {
+	max-width: 100%;
+	width: auto;
+	height: auto;
+	vertical-align: middle;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+ }
+
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

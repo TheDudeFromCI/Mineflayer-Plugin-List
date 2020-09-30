@@ -14,6 +14,8 @@
 	<script src="./src/loadPage.js"></script>
 	<script src="./src/loadPluginList.js"></script>
 	<script src="./src/loadPluginData.js"></script>
+	<script src="./src/generateMedia.js"></script>
+	<script src="./src/plugin.js"></script>
 </head>
 
 <body onload="loadPage()">
@@ -37,7 +39,25 @@
 		</div>
 	</div>
 
-	<div id="pluginListContainer" class="container border rounded" style="display: none;">
+	<div class="container p-0">
+		<div class="d-none d-sm-block" style="height:50px"></div>
+
+		<div id="plugin-media-images" class="carousel slide" data-ride="carousel">
+			<ul id="carousel-indicators-container" class="carousel-indicators"></ul>
+			<div id="carousel-inner-container" class="carousel-inner"></div>
+
+			<a class="carousel-control-prev" href="#plugin-media-images" data-slide="prev">
+				<span class="carousel-control-prev-icon"></span>
+			</a>
+			<a class="carousel-control-next" href="#plugin-media-images" data-slide="next">
+				<span class="carousel-control-next-icon"></span>
+			</a>
+		</div>
+
+		<div class="d-none d-sm-block" style="height:50px"></div>
+	</div>
+
+	<div id="pluginListContainer" class="container" style="display: none;">
 		<div id="pluginList">
 		</div>
 	</div>

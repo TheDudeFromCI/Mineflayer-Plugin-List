@@ -1,6 +1,7 @@
 function loadPluginData(pluginId)
 {
     loadPluginBody(pluginId)
+    generateMedia()
 }
 
 function loadPluginBody(pluginId)
