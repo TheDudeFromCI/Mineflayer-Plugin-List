@@ -1,8 +1,6 @@
-const ISSUE_LIST_URL = 'https://api.github.com/repos/TheDudeFromCI/Mineflayer-Plugin-List/issues'
-
 function getPluginByID(id, cb)
 {
-    function handlePluginResponse()
+    function handleResponse()
     {
         if (this.status >= 200 && this.status < 400)
         {
@@ -16,17 +14,7 @@ function getPluginByID(id, cb)
         }
     }
 
-    function truncate(str, n)
-    {
-        if (str.length <= n) return str
-    
-        let sub = str.substr(0, n - 1);
-        sub = sub.substr(0, sub.lastIndexOf(" "))
-    
-        return sub + "..."
-    }
-
-    function extract(body, element, shouldTruncate=false)
+    function extract(body, element)
     {
         const regex = new RegExp(`#+\\s+${element}\\s+([^#]*)`, "i");
         const cap = body.match(regex)
@@ -35,9 +23,6 @@ function getPluginByID(id, cb)
     
         let context = cap[1]
         context = context.trim()
-
-        if (shouldTruncate)
-            context = truncate(context, 256)
     
         return context
     }
@@ -83,6 +68,8 @@ function getPluginByID(id, cb)
     function parsePluginInfo(response)
     {
         const plugin = {
+            title: response.title.substring(8).trim(),
+            author: response.user.login,
             description: extract(response.body, 'description'),
             videos: extract(response.body, 'videos'),
             screenshots: extract(response.body, 'Screenshots'),
@@ -98,6 +85,6 @@ function getPluginByID(id, cb)
 
     const request = new XMLHttpRequest()
     request.open('GET', ISSUE_LIST_URL + `/${id}`, true)
-    request.onload = handlePluginResponse
+    request.onload = handleResponse
     request.send()
 }

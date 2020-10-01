@@ -10,12 +10,13 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 	<link rel="stylesheet" href="plugins.css" />
+	<script src="./lib/utterances.js"></script>
 	<script src="./src/api.js"></script>
-	<script src="./src/pluginList.js"></script>
-	<script src="./src/loadPluginList.js"></script>
+	<script src="./src/plugin.js"></script>
+	<script src="./src/loadPluginData.js"></script>
 </head>
 
-<body onload="loadPluginList()">
+<body onload="loadPlugin()">
 	<nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
 		<a class="navbar-brand" href="https://prismarine.js.org/">PrismarineJS</a>
 		<ul class="navbar-nav">
@@ -36,9 +37,25 @@
 		</div>
 	</div>
 
-	<div id="pluginListContainer" class="container">
-		<div id="pluginList">
+	<div class="container p-0">
+		<div class="d-none d-sm-block" style="height:50px"></div>
+
+		<div id="plugin-media-images" class="carousel slide" data-ride="carousel">
+			<ul id="carousel-indicators-container" class="carousel-indicators"></ul>
+			<div id="carousel-inner-container" class="carousel-inner"></div>
+
+			<a class="carousel-control-prev" href="#plugin-media-images" data-slide="prev">
+				<span class="carousel-control-prev-icon"></span>
+			</a>
+			<a class="carousel-control-next" href="#plugin-media-images" data-slide="next">
+				<span class="carousel-control-next-icon"></span>
+			</a>
 		</div>
+
+		<div class="d-none d-sm-block" style="height:50px"></div>
+	</div>
+
+	<div id="commentSection" class="container" style="display: none;">
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
