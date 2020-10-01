@@ -21,6 +21,12 @@ function loadPlugin()
             if (plugin.projectRepo)
                 document.getElementById('projectRepo').innerHTML = `<a href="${plugin.projectRepo}">Github</a>`
 
+            marked.setOptions({ breaks: true})
+            if (plugin.additionalInfo)
+                document.getElementById('additionalInfo').innerHTML = marked(plugin.additionalInfo)
+            else
+                document.getElementById('additionalInfo').style.display = 'none'
+
             loadMedia(plugin)
             loadCommentThread(pluginId)
         })
