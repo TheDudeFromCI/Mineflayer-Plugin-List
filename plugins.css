@@ -45,3 +45,7 @@
 .plugin-header {
     background-image: linear-gradient(to bottom, rgb(200, 255, 200), white 99%);
 }
+
+.bg-semi-light {
+    background-color: rgb(220, 220, 220);
+}

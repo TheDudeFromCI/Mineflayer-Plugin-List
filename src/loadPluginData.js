@@ -10,8 +10,17 @@ function loadPlugin()
             }
 
             document.getElementById('bigText').innerHTML = plugin.title
-            document.getElementById('subText').innerHTML = plugin.description
             document.getElementById('author').innerHTML = plugin.author
+
+            if (plugin.description)
+                document.getElementById('subText').innerHTML = plugin.description
+
+            if (plugin.npmInstallation)
+                document.getElementById('npmInstall').innerHTML = plugin.npmInstallation
+
+            if (plugin.projectRepo)
+                document.getElementById('projectRepo').innerHTML = `<a href="${plugin.projectRepo}">Github</a>`
+
             loadMedia(plugin)
             loadCommentThread(pluginId)
         })

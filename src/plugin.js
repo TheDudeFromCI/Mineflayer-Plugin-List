@@ -74,7 +74,7 @@ function getPluginByID(id, cb)
             videos: extract(response.body, 'videos'),
             screenshots: extract(response.body, 'Screenshots'),
             projectRepo: extract(response.body, 'project repo'),
-            npmInstallation: extract(response.body, 'npm installation'),
+            npmInstallation: "npm i " + extract(response.body, 'npm installation'),
         }
 
         extractScreenshots(plugin)
