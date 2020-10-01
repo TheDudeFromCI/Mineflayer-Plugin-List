@@ -18,6 +18,9 @@ function loadPlugin()
             if (plugin.npmInstallation)
                 document.getElementById('npmInstall').innerHTML = plugin.npmInstallation
 
+            if (plugin.examples)
+                document.getElementById('examples').innerHTML = `<a href="${plugin.examples}">Example Bots</a>`
+
             if (plugin.projectRepo)
                 document.getElementById('projectRepo').innerHTML = `<a href="${plugin.projectRepo}">Github</a>`
 
