@@ -49,3 +49,8 @@
 .bg-semi-light {
     background-color: rgb(220, 220, 220);
 }
+
+.carousel-control-prev, .carousel-control-next {
+    top: 45%;
+    bottom: 45%;
+}

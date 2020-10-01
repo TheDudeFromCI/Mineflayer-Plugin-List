@@ -45,7 +45,7 @@ function loadPlugin()
             indicator += `<li data-target="#plugin-media-images" data-slide-to="${index}"${index == 0 ? ' class="active"' : ''}></li>`
             inner += `<div class="carousel-item${index == 0 ? ' active' : ''}">
                         <div class="video-container">
-                          <iframe class="video" frameborder="0" allowfullscreen src="https://www.youtube.com/embed/${m}"></iframe>
+                          <iframe id="media-youtube-embed-${index}" class="video" allowfullscreen src="https://www.youtube.com/embed/${m}?enablejsapi=1"></iframe>
                         </div>
                       </div>`
             index++
@@ -62,6 +62,26 @@ function loadPlugin()
     
         document.getElementById('carousel-indicators-container').innerHTML = indicator
         document.getElementById('carousel-inner-container').innerHTML = inner
+
+        function onPlayerStateChange(event)
+        {
+            console.log("State changed")
+            if (event.data == YT.PlayerState.PLAYING || event.data == YT.PlayerState.BUFFERING)
+                $('#plugin-media-images').carousel('pause');
+            else
+                $('#plugin-media-images').carousel();
+        }
+
+
+        let players = []
+        setTimeout(() => {
+            for (currentIFrame of document.getElementById("plugin-media-images").getElementsByTagName('iframe'))
+            {
+                players.push(new YT.Player(currentIFrame.id, {
+                    events: { 'onStateChange': onPlayerStateChange }
+                }))
+            }
+        }, 0)
     }
 
     function loadCommentThread(issueId)
