@@ -23,21 +23,36 @@
 				<a class="nav-link" href="./index.html">Home</a>
 			</li>
 		</ul>
-		<form class="form-inline float-right">
+		<form class="form-inline" style="position: absolute; right: 10px">
 			<input class="form-control mr-sm-2" type="text" placeholder="Search">
 			<button class="btn btn-success" type="submit">Search</button>
 		</form>
 	</nav>
 
-	<div class="jumbotron jumbotron-fluid">
+	<div class="jumbotron jumbotron-fluid p-2">
 		<div class="container">
-			<h1 id='bigText' class="text-center">Mineflayer Plugin List</h1>
-			<p id='subText' class="text-center">A collection of available plugins to use and extend Mineflayer, customizing to work exactly as you want.</p>
+			<div class="row">
+				<img class="col-3" src="https://avatars3.githubusercontent.com/u/11053411?s=200&v=4"/>
+				<div class="col">
+					<h1 class="text-left">Mineflayer Plugin List</h1>
+					<p class="text-left">
+						<i>
+							A collection of available plugins to use and extend Mineflayer, customizing to work exactly as you want. Feel free to look around
+							and see if anything catches your attention.
+						</i>
+					</p>
+				</div>
+			</div>
 		</div>
 	</div>
 
-	<div id="pluginListContainer" class="container">
-		<div id="pluginList">
+	<div class="container border rounded shadow-sm p-0">
+		<div class="m-0 md-4 plugin-header">
+			<div class="p-4"></div>
+		</div>
+		<div id="pluginListContainer" class="container">
+			<div id="pluginList">
+			</div>
 		</div>
 	</div>
 

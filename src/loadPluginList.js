@@ -32,10 +32,10 @@ function loadPluginList()
             
             const plugElem = document.createElement('div')
             plugElem.classList.add('plugin')
-            plugElem.classList.add('border-secondary')
             plugElem.classList.add('border')
             plugElem.classList.add('rounded')
             plugElem.classList.add('p-2')
+            plugElem.classList.add('shadow-sm')
         
             plugElem.appendChild(name)
             plugElem.appendChild(author)
