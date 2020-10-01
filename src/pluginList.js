@@ -64,6 +64,11 @@ function getPluginList(cb)
             plugin.author = response[i].user.login
             plugin.description = extract(response[i].body, 'description')
             plugin.id = response[i].number
+
+
+            const anotherAuthor = extract(response[i].body, 'author')
+            if (anotherAuthor)
+                plugin.author = anotherAuthor
         }
 
         cb(plugins)

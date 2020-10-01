@@ -78,6 +78,10 @@ function getPluginByID(id, cb)
             additionalInfo: extract(response.body, 'additional info'),
         }
 
+        const anotherAuthor = extract(response.body, 'author')
+        if (anotherAuthor)
+            plugin.author = anotherAuthor
+
         extractScreenshots(plugin)
         extractVideos(plugin)
 
