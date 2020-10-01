@@ -24,7 +24,7 @@
 				<a class="nav-link" href="./index.html">Home</a>
 			</li>
 		</ul>
-		<form class="form-inline float-right">
+		<form class="form-inline" style="position: absolute; right: 10px">
 			<input class="form-control mr-sm-2" type="text" placeholder="Search">
 			<button class="btn btn-success" type="submit">Search</button>
 		</form>
@@ -32,30 +32,57 @@
 
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container">
-			<h1 id='bigText' class="text-center">Mineflayer Plugin List</h1>
-			<p id='subText' class="text-center">A collection of available plugins to use and extend Mineflayer, customizing to work exactly as you want.</p>
+			<div class="row">
+				<img class="col-3" src="https://avatars3.githubusercontent.com/u/11053411?s=200&v=4"/>
+				<div class="col">
+					<h1 class="text-left">Mineflayer Plugin List</h1>
+					<p class="text-left">
+						<i>
+							A collection of available plugins to use and extend Mineflayer, customizing to work exactly as you want. Feel free to look around
+							and see if anything catches your attention.
+						</i>
+					</p>
+				</div>
+			</div>
 		</div>
 	</div>
 
-	<div class="container p-0">
-		<div class="d-none d-sm-block" style="height:50px"></div>
-
-		<div id="plugin-media-images" class="carousel slide" data-ride="carousel">
-			<ul id="carousel-indicators-container" class="carousel-indicators"></ul>
-			<div id="carousel-inner-container" class="carousel-inner"></div>
-
-			<a class="carousel-control-prev" href="#plugin-media-images" data-slide="prev">
-				<span class="carousel-control-prev-icon"></span>
-			</a>
-			<a class="carousel-control-next" href="#plugin-media-images" data-slide="next">
-				<span class="carousel-control-next-icon"></span>
-			</a>
+	<div class="container border rounded shadow-sm p-0">
+		<div class="m-0 md-4 plugin-header">
+			<h2 id='bigText' class="text-center p-4"></h2>
 		</div>
-
-		<div class="d-none d-sm-block" style="height:50px"></div>
-	</div>
-
-	<div id="commentSection" class="container" style="display: none;">
+		<div class="row px-4">
+			<div class="col container p-0">
+				<div id="plugin-media-images" class="carousel slide" data-ride="carousel">
+					<ul id="carousel-indicators-container" class="carousel-indicators">
+						<li data-target="#plugin-media-images" data-slide-to="0"class="active"></li>
+					</ul>
+					<div id="carousel-inner-container" class="carousel-inner">
+						<div class="carousel-item active">
+							<img class="carousel-retain-aspect" src="./imgs/no_screenshots_available.png"/>
+						</div>
+					</div>
+		
+					<a class="carousel-control-prev" href="#plugin-media-images" data-slide="prev">
+						<span class="carousel-control-prev-icon"></span>
+					</a>
+					<a class="carousel-control-next" href="#plugin-media-images" data-slide="next">
+						<span class="carousel-control-next-icon"></span>
+					</a>
+				</div>
+		
+				<div class="d-none d-sm-block" style="height:50px"></div>
+			</div>
+			<div class="col-md-4">
+				<p class="my-1"><strong>Description</strong></p>
+				<p id='subText' class="mu-1 text-justify md-4"></p>
+				<p class="my-1"><strong>Author</strong></p>
+				<p class="my-1"><i id='author'></i></p>
+			</div>
+		</div>
+	
+		<div id="commentSection" class="container" style="display: none;">
+		</div>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

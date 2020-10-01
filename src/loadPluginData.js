@@ -11,6 +11,7 @@ function loadPlugin()
 
             document.getElementById('bigText').innerHTML = plugin.title
             document.getElementById('subText').innerHTML = plugin.description
+            document.getElementById('author').innerHTML = plugin.author
             loadMedia(plugin)
             loadCommentThread(pluginId)
         })
@@ -18,6 +19,8 @@ function loadPlugin()
 
     function loadMedia(plugin)
     {
+        if (plugin.videos.length + plugin.screenshots.length === 0) return
+
         let indicator = ''
         let inner = ''
         let index = 0
